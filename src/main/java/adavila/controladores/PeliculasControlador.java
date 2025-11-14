@@ -27,6 +27,7 @@ public class PeliculasControlador {
 		model.addAttribute("peliculas", pr.findAll());
 		return "peliculas";
 	}
+	
 	@GetMapping("/crear")
 	public String crearFormulario(Model model) {
 		Pelicula peli = new Pelicula();

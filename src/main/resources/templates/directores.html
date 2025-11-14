@@ -15,6 +15,7 @@
 		      <th scope="col">ID</th>
 		      <th scope="col">Nombre</th>
 			  <th scope="col">Peliculas</th>
+			  <th scope="col"></th>
 		    </tr>
 		  </thead>
 		  <tbody class="table-group-divider">
@@ -26,12 +27,15 @@
 				  <li th:each="peli : ${director.peliculas}" th:text=" ${peli.titulo} + '  ,   Año: ' + ${peli.year}"></li>
 				</ul>
 			  </td>
+			  <td  class="actions">
+				<a th:href="@{/directores/eliminar/{id}(id=${director.id})}" class="btn btn-outline-danger" role="button">Eliminar</a>
+			  </td>
 		    </tr>
 		  </tbody>
 		</table>
 
 		<div class="d-grid gap-2 col-6 mx-auto">
-		  <button class="btn btn-outline-success" type="button">Añadir Director</button>
+		  <a th:href="@{/directores/nuevo}" class="btn btn-outline-success" role="button">Añadir director</a>
 		</div>
 	</div>
 	<div class="card-footer text-body-secondary" th:replace="fragments/footer :: footer"><</div>/div>

@@ -38,7 +38,7 @@ public class Pelicula {
 	@JoinColumn (name = "director_id")
 	   	private Director director;
 	
-	@OneToMany (mappedBy = "pelicula",cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
+	@OneToMany (mappedBy = "pelicula",cascade = CascadeType.ALL, orphanRemoval = true)
 	List <Resena> resenas = new ArrayList<>();
 
 	public Pelicula(String titulo, int year) {

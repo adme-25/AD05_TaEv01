@@ -29,7 +29,7 @@ public class Director {
 	@Column(name = "nombre")
 		private String nombre;
 	
-	@OneToMany (mappedBy = "director", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
+	@OneToMany (mappedBy = "director", cascade = CascadeType.ALL, orphanRemoval = true)
 	List <Pelicula> peliculas = new ArrayList<>();
 
 	public Director(String nombre) {
