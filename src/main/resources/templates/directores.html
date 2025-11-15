@@ -9,6 +9,7 @@
 	<div class="card text-center">
 	  <div class="card-header" th:replace="fragments/header :: header"></div>
 	  <div class="card-body">
+		<h2>DIRECTORES</h2>
 		<table class="table table-striped">
 		  <thead>
 		    <tr>
@@ -28,7 +29,7 @@
 				</ul>
 			  </td>
 			  <td  class="actions">
-				<a th:href="@{/directores/eliminar/{id}(id=${director.id})}" class="btn btn-outline-danger" role="button">Eliminar</a>
+				<a th:href="@{/directores/eliminar/{id}(id=${director.id})}" class="btn btn-outline-danger" role="button" onclick="return confirm('¿Estás seguro de que quieres eliminar este director?');">>Eliminar</a>
 			  </td>
 		    </tr>
 		  </tbody>

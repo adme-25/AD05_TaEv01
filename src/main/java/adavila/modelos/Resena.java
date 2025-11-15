@@ -43,5 +43,12 @@ public class Resena {
 		this.opinion = opinion;
 	}
 	
+	public Resena(String autor, String valoracion, String opinion, int pelicula) {
+		super();
+		this.autor = autor;
+		this.valoracion = valoracion;
+		this.opinion = opinion;
+		this.pelicula.setId(pelicula);
+	}
 
 }
