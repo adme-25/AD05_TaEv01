@@ -12,7 +12,7 @@
 
 		<form method="post" th:action="@{/resenas/crear/submit}" th:object="${resena}">
 		  <h1>
-			  <span th:text="${id} != null ? 'modificar' : 'crear'"></span>resenas
+			  <span th:text="${id} != null ? 'Modificar' : 'Crear'"></span> resenas
 		  </h1>
 		  <input type="hidden" th:field="*{id}" id="id"/>
 		  

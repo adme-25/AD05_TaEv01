@@ -9,6 +9,7 @@
 	<div class="card text-center">
 	  <div class="card-header" th:replace="fragments/header :: header"></div>
 	  <div class="card-body">
+		<h2>Borrar Pelicula</h2>
 		<form method="post" th:action="@{/peliculas/borrar/submit}" th:object="${pelicula}">
 		  <div class="mb-3">
 			<label for="titulo" class="form-label">Selecciona de la lista la película a eliminar</label>

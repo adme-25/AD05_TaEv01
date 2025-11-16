@@ -9,7 +9,7 @@
 	<div class="card text-center">
 	  <div class="card-header" th:replace="fragments/header :: header"></div>
 	  <div class="card-body">
-
+		<h2>Crear Director</h2>
 		<form method="post" th:action="@{/directores/nuevo/submit}" th:object="${nuevoDirector}">
 		  <div class="mb-3">
 		    <label for="nombre" class="form-label">Nombre y apellido del director</label>

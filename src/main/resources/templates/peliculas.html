@@ -23,7 +23,12 @@
 		  <tbody class="table-group-divider">
 		    <tr th:each="peli : ${peliculas}">
 		      <td th:text="${peli.id}"></td>
-		      <td th:text="${peli.titulo}"></td>
+		      <td>
+				<a th:href="@{'https://www.filmaffinity.com/es/search.php?stext=' + ${peli.titulo}}"
+				   target="_blank"
+				   th:text="${peli.titulo}">
+				</a>
+			  </td>
 		      <td th:text="${peli.year}"></td>
 			  <td th:text="${peli.director?.nombre}"></td>
 			  <td class="text-start">

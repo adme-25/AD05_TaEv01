@@ -29,7 +29,8 @@
 				</ul>
 			  </td>
 			  <td  class="actions">
-				<a th:href="@{/directores/eliminar/{id}(id=${director.id})}" class="btn btn-outline-danger" role="button" onclick="return confirm('¿Estás seguro de que quieres eliminar este director?');">>Eliminar</a>
+				<a th:href="@{/directores/eliminar/{id}(id=${director.id})}" class="btn btn-outline-danger" role="button" 
+					onclick="return confirm('¿Estás seguro de que quieres eliminar este director? Se eliminaran todas sus peliculas con sus reseñas');">Eliminar</a>
 			  </td>
 		    </tr>
 		  </tbody>
@@ -39,7 +40,7 @@
 		  <a th:href="@{/directores/nuevo}" class="btn btn-outline-success" role="button">Añadir director</a>
 		</div>
 	</div>
-	<div class="card-footer text-body-secondary" th:replace="fragments/footer :: footer"><</div>/div>
+	<div class="card-footer text-body-secondary" th:replace="fragments/footer :: footer"><</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
