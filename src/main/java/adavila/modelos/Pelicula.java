@@ -53,6 +53,4 @@ public class Pelicula {
 		this.year = year;
 		this.director.setId(director_id);
 	}
-
-	
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import adavila.modelos.Director;
 import adavila.modelos.Pelicula;
-import adavila.modelos.Resena;
 import adavila.repositorios.DirectorRepositorio;
 import adavila.repositorios.PeliculaRepositorio;
 
@@ -33,14 +32,19 @@ public class PeliculasControlador {
 	
 	@GetMapping("/crear")
 	public String crearFormulario(Model model) {
-		Pelicula peli = new Pelicula();
-		model.addAttribute("pelicula", peli);
-		model.addAttribute("directores", dr.findAll());
+		Pelicula pelicula = new Pelicula();
+		model.addAttribute("pelicula", pelicula);
+		
 		return "pelisFormulario";
 	}
 	
 	@PostMapping ("/crear/submit")
 	public String submitCrearNueva(@ModelAttribute Pelicula peli) {
+	    Director existente = dr.findByNombre(peli.getDirector().getNombre());
+	    if (existente == null) {
+	    	existente = dr.save(peli.getDirector());
+	    }
+	    peli.setDirector(existente);
 		pr.save(peli);
 		return "redirect:/peliculas";
 	}
@@ -52,14 +56,14 @@ public class PeliculasControlador {
 	}
 	
 	@GetMapping ("modificar/{id}")
-	public String initEditForm(@PathVariable("id")int id, Model model) {
+	public String modificarForm(@PathVariable("id")int id, Model model) {
 		Pelicula pelicula = pr.findById(id).orElseThrow();
 		model.addAttribute("pelicula", pelicula);
 		return "pelisModificar";
 	}
 	
 	@PostMapping("/modificar/submit")
-	public String processEditForm(@ModelAttribute Pelicula pelicula) {
+	public String modificarSubmit(@ModelAttribute Pelicula pelicula) {
 		//Recogemos la pelicula a modificar por su id 
 		//y pasarle los cambios efectuados en el modelo
 		//y conservar los que no se editan
