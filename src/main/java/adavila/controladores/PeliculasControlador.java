@@ -60,25 +60,23 @@ public class PeliculasControlador {
 	
 	@PostMapping("/modificar/submit")
 	public String processEditForm(@ModelAttribute Pelicula pelicula) {
+		//Recogemos la pelicula a modificar por su id 
+		//y pasarle los cambios efectuados en el modelo
+		//y conservar los que no se editan
 		Pelicula original =  pr.findById(pelicula.getId()).orElseThrow();
 		
 	    original.setTitulo(pelicula.getTitulo());
 	    original.setYear(pelicula.getYear());
-	    // Buscar si ya existe un director con ese nombre
+	    
+	    // Comprobamos si el director recogido existe y si no lo creamos a partir del modelo
 	    Director existente = dr.findByNombre(pelicula.getDirector().getNombre());
-
 	    if (existente == null) {
-	        // No existe → guardar nuevo
 	        existente = dr.save(pelicula.getDirector());
 	    }
-
-	    // Asignar el director (existente o recién creado) a la película
 	    original.setDirector(existente);
 
-
-	    // Guardar la película
 	    pr.save(original);
 
-	    return "redirect:/peliculas"; // o donde quieras redirigir
+	    return "redirect:/peliculas"; 
 	}
 }
