@@ -1,7 +1,5 @@
 package adavila.controladores;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,5 +48,11 @@ public class ResenasControlador {
 		Resena resena = rr.findById(id).orElseThrow();
 		model.addAttribute("resena", resena);
 		return "resenasForm";
+	}
+	@GetMapping ("eliminar/{id}")
+	public String initDelete(@PathVariable ("id") int id) {
+		rr.deleteById(id);
+		return "redirect:/resenas";
+		
 	}
 }

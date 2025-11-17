@@ -23,6 +23,7 @@ public class BootStrapData implements CommandLineRunner{
 	@Autowired
 	private ResenaRepositorio rr;
 	
+	//Método que carga los objetos en la base de datos si esta vacia
 	@Transactional
 	@Override
 	public void run (String... arg0) throws Exception{
