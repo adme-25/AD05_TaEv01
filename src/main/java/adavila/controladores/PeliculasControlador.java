@@ -40,6 +40,7 @@ public class PeliculasControlador {
 	
 	@PostMapping ("/crear/submit")
 	public String submitCrearNueva(@ModelAttribute Pelicula peli) {
+		// Comprobamos si el director recogido existe y si no lo creamos a partir del modelo
 	    Director existente = dr.findByNombre(peli.getDirector().getNombre());
 	    if (existente == null) {
 	    	existente = dr.save(peli.getDirector());
