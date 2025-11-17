@@ -47,7 +47,7 @@
 						<td>
 							<a th:href="@{/peliculas/borrar/{id}(id=${peli.id})}" class="btn btn-outline-danger"
 								role="button"
-								onclick="return confirm('¿Estás seguro de que quieres eliminar la pelicula?');">
+								th:onclick="'return confirm(\'¿Estás seguro de que quieres eliminar la película con Id ' + ${peli.id} + '?\');'">
 								Eliminar
 							</a>
 						</td>
